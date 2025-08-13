@@ -10,6 +10,7 @@ export default function LandingScreen({ navigation }) {
 
         <Image
             source={require('../../assets/casual_dog.png')}
+            style={{ width: '98%', height: 310 }}
         />
 
         <Text style={styles.title}>Ótimo dia!</Text>
@@ -19,16 +20,22 @@ export default function LandingScreen({ navigation }) {
             style={styles.acessButton}
             onPress={() => navigation.navigate('Login')}
         >
-            <Image
-                source={require('../../assets/Google.png')}
-            />
-            <Text style={styles.acbText}>Como deseja acessar?</Text>
+            <View style={styles.buttonContent}>
+                <View style={styles.iconContainer}>
+                    <Image
+                        source={require('../../assets/Google.png')}
+                        style={{ width: 32, height: 32 }}
+                    />
+                </View>
+                <Text style={styles.acbText}>Como deseja acessar?</Text>
+            </View>
+            
         </TouchableOpacity>
 
         <TouchableOpacity
             style={styles.anotherButton}
         >
-            <Text style={styles.anbText}>Outras formas</Text>
+            <Text style={styles.anbText}>Outras opções</Text>
         </TouchableOpacity>
 
     </View>
@@ -42,41 +49,62 @@ const styles = StyleSheet.create({
     },
     title: {
         alignContent: 'center',
-        fontSize: 24,
-        marginBottom: 25,
+        fontSize: 34,
+        marginBottom: 10,
+        marginTop: 35,
         color: '#555555'
     },
     subtitle: {
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 20,
+        fontSize: 12,
         marginBottom: 10,
         color: '#555555'
+    },
+    iconContainer: {
+        backgroundColor: '#fafafa',
+        borderRadius: 5,
+        padding: 5,
+        marginRight: 140,
+        width: 40,
+        height: 40,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    buttonContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     acessButton: {
         backgroundColor: '#14c871',
         margin: 10,
-        borderRadius: 20,
-        width: windowWidth * 0.5,
-        padding: 10,
+        borderRadius: 10,
+        width: '100%',
+        maxWidth: 350,
+        height: 65,
+        justifyContent: 'center',
         alignItems: 'center',
-        justifyContent: 'center'
+        position: 'relative',
     },
     anotherButton: {
         backgroundColor: '#fefefe',
         margin: 10,
-        borderRadius: 20,
-        width: windowWidth * 0.5,
+        borderRadius: 10,
+        borderColor: '#14c871',
+        borderWidth: 1,
+        width: 350,
+        height: 65,
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center'
     },
     acbText: {
         color: '#fefefe',
-        fontSize: 16
+        fontSize: 12,
     },
     anbText: {
         color: '#555555',
-        fontSize: 16
+        fontSize: 12
     }
 });

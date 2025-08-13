@@ -11,7 +11,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName='Landing'>
         <Stack.Screen name = 'Landing' component={LandingScreen} options={{headerShown: false}}/>
-        <Stack.Screen name = 'Login' component={LoginScreen}/>
+        <Stack.Screen name = 'Login' component={LoginScreen} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

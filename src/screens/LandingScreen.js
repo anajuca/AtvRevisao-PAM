@@ -2,79 +2,75 @@ import React from 'react';
 import { Image } from 'react-native';
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, TextInput } from 'react-native';
 
-const windowWidth = Dimensions.get('window').width;
-
 export default function LandingScreen({ navigation }) {
     return(
-    <View style={styles.container}>
+        <View style={styles.container}>
 
-        <Image
-            source={require('../../assets/casual_dog.png')}
-            style={{ width: '98%', height: 310 }}
-        />
+            <Image
+                source={require('../../assets/casual_dog.png')}
+                style={{ width: '98%', height: 310 }}
+            />
 
-        <Text style={styles.title}>Ótimo dia!</Text>
-        <Text style={styles.subtitle}>Como deseja acessar?</Text>
+            <Text style={styles.title}>Ótimo dia!</Text>
+            <Text style={styles.subtitle}>Como deseja acessar?</Text>
 
-        <TouchableOpacity
-            style={styles.acessButton}
-            onPress={() => navigation.navigate('Login')}
-        >
-            <View style={styles.buttonContent}>
-                <View style={styles.iconContainer}>
+            <TouchableOpacity
+                style={styles.acessButton}
+                onPress={() => navigation.navigate('Login')}
+            >
+                <View style={styles.imgContainer}>
                     <Image
                         source={require('../../assets/Google.png')}
-                        style={{ width: 32, height: 32 }}
+                        style={styles.icon}
                     />
                 </View>
                 <Text style={styles.acbText}>Como deseja acessar?</Text>
-            </View>
-            
-        </TouchableOpacity>
+            </TouchableOpacity>
 
-        <TouchableOpacity
-            style={styles.anotherButton}
-        >
-            <Text style={styles.anbText}>Outras opções</Text>
-        </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.anotherButton}
+            >
+                <Text style={styles.anbText}>Outras opções</Text>
+            </TouchableOpacity>
 
-    </View>
-)};
+        </View>
+    );
+};
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fefefe',
+        backgroundColor: '#f3f3f3',
     },
     title: {
         alignContent: 'center',
         fontSize: 34,
-        marginBottom: 10,
+        marginBottom: 15,
         marginTop: 35,
-        color: '#555555'
+        color: '#555555',
+        fontWeight:470,
     },
     subtitle: {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 12,
-        marginBottom: 10,
-        color: '#555555'
+        marginBottom: 35,
+        color: '#555555',
+        fontWeight:500,
     },
-    iconContainer: {
-        backgroundColor: '#fafafa',
+    icon: {
+        width: 32,
+        height: 32,
+    },
+    imgContainer: {
+        width: 38,
+        height: 38,
+        position: 'absolute',
+        left: 15,
+        backgroundColor: '#fefefe',
         borderRadius: 5,
-        padding: 5,
-        marginRight: 140,
-        width: 40,
-        height: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    buttonContent: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
+        padding: 3
     },
     acessButton: {
         backgroundColor: '#14c871',
@@ -85,7 +81,8 @@ const styles = StyleSheet.create({
         height: 65,
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'relative',
+        display: 'flex',
+        flexDirection: 'row'
     },
     anotherButton: {
         backgroundColor: '#fefefe',
@@ -102,9 +99,11 @@ const styles = StyleSheet.create({
     acbText: {
         color: '#fefefe',
         fontSize: 12,
+        fontWeight:400,
     },
     anbText: {
         color: '#555555',
-        fontSize: 12
+        fontSize: 12,
+        fontWeight:400,
     }
 });

@@ -16,7 +16,6 @@ export default function LandingScreen({ navigation }) {
 
             <TouchableOpacity
                 style={styles.acessButton}
-                onPress={() => navigation.navigate('Login')}
             >
                 <View style={styles.imgContainer}>
                     <Image
@@ -29,6 +28,7 @@ export default function LandingScreen({ navigation }) {
 
             <TouchableOpacity
                 style={styles.anotherButton}
+                onPress={() => navigation.navigate('Login')}
             >
                 <Text style={styles.anbText}>Outras opções</Text>
             </TouchableOpacity>

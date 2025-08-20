@@ -1,33 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image } from 'react-native';
+import Checkbox from 'expo-checkbox';
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, TextInput } from 'react-native';
 
 export default function LoginScreen({ navigation }) {
-    return(
-         <View style={styles.container}>
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [lembrarSenha, setLembrarSenha] = useState(false);
+
+    return (
+        <View style={styles.container}>
             <Text style={styles.title}>Acesse</Text>
             <Text style={styles.subtitle}>com E-mail e senha</Text>
 
             <Text style={styles.label}>E-mail</Text>
 
-            <TextInput 
+            <TextInput
                 style={styles.input}
                 value={email}
+                onChangeText={setEmail}
                 placeholder='Digite seu E-mail'
+                keyboardType="email-address"
             />
 
             <Text style={styles.label}>Senha</Text>
 
-            <TextInput 
+            <TextInput
                 style={styles.input}
                 value={senha}
+                onChangeText={setSenha}
                 placeholder='Digite sua senha'
+                secureTextEntry={true}
             />
 
             <View style={styles.checkboxContainer}>
-                <CheckBox style={styles.checkbox}/>
-                <Text>Lembrar senha</Text>
-                <Text>Esqueci minha senha</Text>
+                <Checkbox
+                    style={styles.checkbox}
+                    value={lembrarSenha}
+                    onValueChange={setLembrarSenha}
+                    color={lembrarSenha ? '#4630EB' : undefined}
+                />
+                <Text style={styles.acbText}>Lembrar senha</Text>
+                <Text style={styles.acbText}>Esqueci minha senha</Text>
             </View>
 
             <View style={styles.buttons}>
@@ -35,16 +49,16 @@ export default function LoginScreen({ navigation }) {
                     <Text style={styles.acbText}>Acessar</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.signUpButton}> 
+                <TouchableOpacity style={styles.signUpButton}>
                     <Text style={styles.subText}>Cadastrar</Text>
                 </TouchableOpacity>
             </View>
 
             <Text style={styles.continue}>Ou continue com</Text>
 
-            <View style={styles.images}>
-                <Image source={require('../../assets/Google.png')}style={styles.icon}/>
-                <Image source={require('../../assets/Facebook.png')}style={styles.icon}/>
+            <View style={styles.imgContainer}>
+                <Image source={require('../../assets/Google.png')} style={styles.icon} />
+                <Image source={require('../../assets/Facebook.png')} style={styles.icon} />
             </View>
         </View>
     );
@@ -52,16 +66,16 @@ export default function LoginScreen({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        padding: 20,
+        paddingTop: 60,
         backgroundColor: '#f3f3f3',
     },
     title: {
         fontSize: 34,
-        marginBottom: 15,
+        marginBottom: 5,
         marginTop: 35,
         color: '#555555',
-        fontWeight:470,
+        fontWeight: 470,
     },
     subtitle: {
         justifyContent: 'center',
@@ -69,7 +83,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         marginBottom: 35,
         color: '#555555',
-        fontWeight:500,
+        fontWeight: 300,
     },
     icon: {
         width: 32,
@@ -88,7 +102,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#14c871',
         margin: 10,
         borderRadius: 10,
-        width: '100%',
+        width: '50%',
         maxWidth: 350,
         height: 65,
         justifyContent: 'center',
@@ -111,26 +125,49 @@ const styles = StyleSheet.create({
     acbText: {
         color: '#fefefe',
         fontSize: 12,
-        fontWeight:400,
+        fontWeight: 400,
     },
     subText: {
         color: '#555555',
         fontSize: 12,
-        fontWeight:400,
+        fontWeight: 400,
     },
     checkboxContainer: {
-
+        justifyContent: 'center',
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row'
     },
     checkbox: {
-
+        justifyContent: 'center',
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row'
     },
     buttons: {
-
+        justifyContent: 'center',
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row'
     },
     label: {
-
+        color: '#555555',
+        fontSize: 10,
+        fontWeight: 300,
+    },
+    input: {
+        backgroundColor: '#bec3c7',
+        margin: 10,
+        borderRadius: 10,
+        width: '100%',
+        maxWidth: 350,
+        height: 65,
+        display: 'flex',
+        flexDirection: 'row'
     },
     continue: {
-
+        color: '#6d6d6d',
+        fontSize: 12,
+        fontWeight: 350,
     }
 });

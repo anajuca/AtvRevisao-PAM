@@ -16,6 +16,14 @@ export default function LoginScreen({ navigation }) {
 
     return (
         <View style={styles.container}>
+            
+             <TouchableOpacity
+                    style={styles.backButton}
+                    onPress={() => navigation.goBack()}
+                >
+                    <Text style={styles.backButtonText}>&lt;</Text>
+                </TouchableOpacity>
+
             <Text style={styles.title}>Acesse</Text>
             <Text style={styles.subtitle}>com E-mail e senha</Text>
 
@@ -233,5 +241,16 @@ const styles = StyleSheet.create({
         color: '#6d6d6d',
         fontSize: 12,
         fontWeight: 350,
+    },
+    backButton: {
+        position: 'absolute',
+        right: 325,
+        top: 30,
+        padding: 10,
+    },
+    backButtonText: {
+        fontSize: 50,
+        color: '#14c871',
+        fontWeight: 200,
     },
 });
